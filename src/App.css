@@ -2,12 +2,18 @@
   font-family: 'Lora', serif;
 }
 
-.hero {
+.caro-image {
   position: absolute;
   left: 0;
   top: 0;
   width: 100%;
   height: 100vh;
   object-fit: cover;
+  /* background-size: cover; */
   z-index: -1;
+}
+
+.hero-text {
+  margin-top: 30vh;
+  margin-bottom: 45vh;
 }
