@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import HeroImg from '../assets/images/hero.jpg'
 import '../assets/sass/style.scss'
-import { Link } from 'react-router-dom'
 import Card from './Card'
 
 const Cards = () => {
