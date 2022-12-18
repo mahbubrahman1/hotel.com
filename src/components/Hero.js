@@ -1,8 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
-import HeroImg from '../../assets/images/hero.jpg'
-import images from '../../assets/images/cover-images'
+import HeroImg from '../assets/images/hero.jpg'
 import { motion } from 'framer-motion'
-import '../../App.css';
+import '../assets/sass/style.scss';
 import { Link } from 'react-router-dom';
 
 const Hero = () => {
@@ -50,8 +49,7 @@ const Hero = () => {
                             return (
                                 <motion.div className='item' key={place.title}>
                                     <img src={place.image} alt="" className='place-image' />
-                                    <h2 className='card-title'>{place.title}</h2>
-                                    <Link className='card-text'>Book Now</Link>
+                                    <Link><h2 className='card-title'>{place.title}</h2></Link>
                                 </motion.div>
                             )
                         })

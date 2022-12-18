@@ -1,6 +1,6 @@
 import React from 'react'
-import Hero from '../../components/Hero/Hero'
-import '../../App.css'
+import Hero from '../components/Hero'
+import '../assets/sass/style.scss'
 
 const Home = () => {
     return (
@@ -10,4 +10,4 @@ const Home = () => {
     )
 }
 
-export default Home
+export default Home;
