@@ -7,7 +7,9 @@ const Card = ({ place }) => {
     return (
         <motion.div className='item' key={place.title}>
             <img src={place.image} alt="" className='place-image' />
-            <Link><h2 className='card-title'>{place.title}</h2></Link>
+            <Link to={`/${place.id}`}>
+                <h2 className='card-title'>{place.title}</h2>
+            </Link>
         </motion.div>
     )
 }
