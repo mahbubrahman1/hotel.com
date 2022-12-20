@@ -3,11 +3,21 @@ import '../assets/sass/style.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import { faGoogle } from '@fortawesome/free-brands-svg-icons'
-import { Link } from 'react-router-dom'
-import useFirebase from '../hooks/useFirebase'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
+import useAuth from '../hooks/useAuth'
 
 const Login = () => {
-    const { handleGoogleSignIn, handleForm } = useFirebase();
+    const { handleGoogleSignIn, handleForm } = useAuth();
+
+    const navigate = useNavigate();
+    const location = useLocation()
+
+    const googleSignin = () => {
+        handleGoogleSignIn()
+            .then(result => {
+                navigate(location.state?.from || '/')
+            })
+    }
 
     return (
         <div>
@@ -33,7 +43,7 @@ const Login = () => {
 
                     <h4>or</h4>
 
-                    <button onClick={handleGoogleSignIn} className='google-signin-btn'>
+                    <button onClick={googleSignin} className='google-signin-btn'>
                         <FontAwesomeIcon icon={faGoogle} /> SignIn with Google
                     </button>
                 </div>

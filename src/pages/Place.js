@@ -12,9 +12,6 @@ const Place = () => {
     return (
         <div>
             <img src={HeroImg} alt="" className='hero' />
-            {/* <Link to='/' style={{ textDecoration: 'none' }}><h2 style={{ color: "white" }}>
-                <FontAwesomeIcon icon={faArrowLeft} /> Back</h2>
-            </Link> */}
             <h2>
                 <Link to='/' style={{ textDecoration: 'none', color: 'whitesmoke' }}>
                     <FontAwesomeIcon icon={faArrowLeft} /> Back

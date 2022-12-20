@@ -1,11 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import Cards from '../components/Cards';
-import useFirebase from '../hooks/useFirebase';
+import useAuth from '../hooks/useAuth';
 import '../assets/sass/style.scss'
 
 const Home = () => {
-    const { user, handleLogout } = useFirebase()
+    const { user, handleLogout } = useAuth()
 
     return (
         <div>
