@@ -3,7 +3,6 @@ import HeroImg from '../assets/images/hero.jpg'
 import places from '../assets/data/places'
 import { useParams } from 'react-router-dom'
 
-
 const Place = () => {
     const { id } = useParams()
     const place = places.find(place => place.id === id)
@@ -12,25 +11,36 @@ const Place = () => {
         <div>
             <img src={HeroImg} alt="" className='hero' />
             <div className="container">
-                <form action="/action_page.php">
-                    <label for="fname">First Name</label>
-                    <input type="text" id="fname" name="firstname" placeholder="Your name.." />
+                <div className="item1">
+                    <h1 style={{ fontSize: '50px' }}>{place.title}</h1>
+                    <h3>{place.description}</h3>
+                </div>
+                <div className="item2">
+                    <div className="form-container">
+                        <form action="/action_page.php">
 
-                    <label for="lname">Last Name</label>
-                    <input type="text" id="lname" name="lastname" placeholder="Your last name.." />
+                            <label htmlFor="from">From</label>
+                            <input type="text" id="from" name="from" />
 
-                    <label for="country">Country</label>
-                    <select id="country" name="country">
-                        <option value="australia">Australia</option>
-                        <option value="canada">Canada</option>
-                        <option value="usa">USA</option>
-                    </select>
+                            <label htmlFor="to">To</label>
+                            <input type="text" id="to" name="to" />
 
-                    <label for="subject">Subject</label>
-                    <textarea id="subject" name="subject" placeholder="Write something.." style={{ height: '200px' }}></textarea>
+                            <div className="date-container">
+                                <div>
+                                    <label htmlFor="to">Departure Date: </label>
+                                    <input type="date" id="departure" name="departure" />
+                                </div>
 
-                    <input type="submit" value="Submit" />
-                </form>
+                                <div>
+                                    <label htmlFor="to">Return Date: </label>
+                                    <input type="date" id="return" name="return" />
+                                </div>
+                            </div>
+
+                            <input type="submit" value="Book" />
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     )

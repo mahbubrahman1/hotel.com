@@ -16,6 +16,7 @@ const Cards = () => {
     return (
         <div>
             <img src={HeroImg} alt="" className='hero' />
+            <h1 className='heading-text'>Book Your Travel Hotel From Here</h1>
             <motion.div ref={carousel} className='carousel' whileTap={{ cursor: "grabbing" }}>
                 <motion.div drag='x' dragConstraints={{ right: 0, left: -width }} className='inner-carousel'>
                     {
