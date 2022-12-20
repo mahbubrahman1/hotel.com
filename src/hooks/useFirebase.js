@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { useEffect, useState } from 'react'
+import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "firebase/auth";
 import initAuth from '../firebase/firebase.init';
 
 initAuth();
@@ -18,7 +18,24 @@ const useFirebase = () => {
             })
     }
 
-    return { user, handleGoogleSignIn }
+    useEffect(() => {
+        onAuthStateChanged(auth, user => {
+            setUser(user)
+        })
+    }, [])
+
+    const handleLogout = () => {
+        signOut(auth)
+            .then(() => {
+                setUser({})
+            })
+    }
+
+    const handleForm = (e) => {
+        e.preventDefault()
+    }
+
+    return { user, handleGoogleSignIn, handleForm, handleLogout }
 }
 
 export default useFirebase

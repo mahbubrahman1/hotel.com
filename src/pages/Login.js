@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 import useFirebase from '../hooks/useFirebase'
 
 const Login = () => {
-    const { handleGoogleSignIn } = useFirebase();
+    const { handleGoogleSignIn, handleForm } = useFirebase();
 
     return (
         <div>
@@ -16,7 +16,7 @@ const Login = () => {
                     <FontAwesomeIcon icon={faArrowLeft} /> Home
                 </Link>
             </h2>
-            <form className='login-form'>
+            <form onSubmit={handleForm} className='login-form'>
                 <h1 style={{ textAlign: 'center', fontWeight: 'bold' }}>Login</h1>
                 <div className="content">
                     <div className="input-field">
@@ -32,11 +32,13 @@ const Login = () => {
                     <h4>Don't have an account? <Link to='/register'>Register</Link></h4>
 
                     <h4>or</h4>
+
+                    <button onClick={handleGoogleSignIn} className='google-signin-btn'>
+                        <FontAwesomeIcon icon={faGoogle} /> SignIn with Google
+                    </button>
                 </div>
             </form>
-            <button onClick={handleGoogleSignIn} className='google-signin-btn'>
-                <FontAwesomeIcon icon={faGoogle} /> SignIn with Google
-            </button>
+
         </div>
     )
 }
