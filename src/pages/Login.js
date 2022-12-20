@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../assets/sass/style.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
@@ -8,15 +8,18 @@ import useAuth from '../hooks/useAuth'
 
 const Login = () => {
     const { handleGoogleSignIn, handleForm } = useAuth();
-
+    const [isLoading, setIsLoading] = useState(true);
     const navigate = useNavigate();
     const location = useLocation()
 
     const googleSignin = () => {
+        setIsLoading(false)
+
         handleGoogleSignIn()
             .then(result => {
                 navigate(location.state?.from || '/')
             })
+            .finally(() => setIsLoading(false));
     }
 
     return (
