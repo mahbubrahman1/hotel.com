@@ -1,7 +1,9 @@
 import React from 'react'
 import HeroImg from '../assets/images/hero.jpg'
 import places from '../assets/data/places'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 
 const Place = () => {
     const { id } = useParams()
@@ -10,7 +12,17 @@ const Place = () => {
     return (
         <div>
             <img src={HeroImg} alt="" className='hero' />
+            {/* <Link to='/' style={{ textDecoration: 'none' }}><h2 style={{ color: "white" }}>
+                <FontAwesomeIcon icon={faArrowLeft} /> Back</h2>
+            </Link> */}
+            <h2>
+                <Link to='/' style={{ textDecoration: 'none', color: 'whitesmoke' }}>
+                    <FontAwesomeIcon icon={faArrowLeft} /> Back
+                </Link>
+            </h2>
+
             <div className="container">
+
                 <div className="item1">
                     <h1 style={{ fontSize: '50px' }}>{place.title}</h1>
                     <h3>{place.description}</h3>
@@ -37,12 +49,14 @@ const Place = () => {
                                 </div>
                             </div>
 
-                            <input type="submit" value="Book" />
+                            <Link to={`/${place.id}/hotels`}>
+                                <input type="submit" value="Book" />
+                            </Link>
                         </form>
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 

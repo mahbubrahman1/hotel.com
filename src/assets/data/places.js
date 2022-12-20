@@ -25,7 +25,7 @@ const places = [
     },
     {
         id: "stmartin",
-        title: "St.Martin",
+        title: "St. Martin",
         image: "https://i.ibb.co/jvNjHTK/st-martin.jpg",
         description: "St. Martin's Island is a small island in the northeastern part of the Bay of Bengal, about 9 km south of the tip of the Cox's Bazar-Teknaf peninsula, and forming the southernmost part of Bangladesh. There is a small adjoining island that is separated at high tide, called Chera Dwip. It is about 8 kilometres (5 miles) west of the northwest coast of Myanmar, at the mouth of the Naf River."
     },
